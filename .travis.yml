@@ -13,3 +13,10 @@ script:
   - docker run ccazin/react-test npm run test -- --version
   # should be 
   #  - docker run ccazin/docker-react npm run test -- --coverage
+
+after_success:
+  - docker build ccazin/multi-client ./client
+  - docker build ccazin/multi-nginx ./nginx
+  - docker build ccazin/multi-server ./server
+  - docker build ccazin/multi-worker ./worker
+
