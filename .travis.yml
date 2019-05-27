@@ -2,7 +2,7 @@
 sudo: required
 # Request to travis docker cli ready to go 
 services:
-  - docker 
+  - docker
 
 # Create a test container into ./client context ( last field ) 
 before_install:
@@ -11,7 +11,7 @@ before_install:
 # The script has to return 0 to validate test 
 script:
   - docker run ccazin/react-test npm run test -- --version
-# should be 
+  # should be 
   #  - docker run ccazin/docker-react npm run test -- --coverage
 
 after_success:
