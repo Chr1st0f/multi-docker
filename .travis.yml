@@ -19,14 +19,16 @@ after_success:
   - docker build ccazin/multi-nginx ./nginx
   - docker build ccazin/multi-server ./server
   - docker build ccazin/multi-worker ./worker
+
   # Log in to the docker CLI
   - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
   # Take those images and push them to docker hub
-  docker build ccazin/multi-client
-  docker build ccazin/multi-nginx
-  docker build ccazin/multi-server
-  docker build ccazin/multi-worker
-  
+  docker push ccazin/multi-client
+  docker push ccazin/multi-nginx
+  docker push ccazin/multi-server
+  docker push ccazin/multi-worker
+
 # Deployment on AWS
 # deploy:
 #   provider: elasticbeanstalk
@@ -40,4 +42,3 @@ after_success:
 #   access_key_id: $AWS_ACCESS_KEY
 #   secret_access_key:
 #     secure: "$AWS_SECRET_KEY"
-
