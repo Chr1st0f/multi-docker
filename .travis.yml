@@ -15,8 +15,8 @@ script:
   #  - docker run ccazin/docker-react npm run test -- --coverage
 
 after_success:
-  - docker build ccazin/multi-client ./client
-  - docker build ccazin/multi-nginx ./nginx
-  - docker build ccazin/multi-server ./server
-  - docker build ccazin/multi-worker ./worker
+  - docker build -t ccazin/multi-client ./client
+  - docker build -t ccazin/multi-nginx ./nginx
+  - docker build -t ccazin/multi-server ./server
+  - docker build -t ccazin/multi-worker ./worker
 
