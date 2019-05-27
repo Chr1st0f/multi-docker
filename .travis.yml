@@ -20,3 +20,11 @@ after_success:
   - docker build -t ccazin/multi-server ./server
   - docker build -t ccazin/multi-worker ./worker
 
+  # Log in to the docker CLI
+  - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Take those images and push them to docker hub
+  docker push ccazin/multi-client
+  docker push ccazin/multi-nginx
+  docker push ccazin/multi-server
+  docker push ccazin/multi-worker
